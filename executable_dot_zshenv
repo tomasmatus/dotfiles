@@ -1,0 +1,5 @@
+EDITOR="lvim"
+export VISUAL=${EDITOR}
+export EDITOR=${EDITOR}
+
+export PATH="${PATH}:${HOME}/.local/bin"
