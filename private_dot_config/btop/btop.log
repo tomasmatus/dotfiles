@@ -1,0 +1,7 @@
+
+2023/07/01 (20:07:21) | ===> btop++ v.1.2.13
+2023/07/01 (20:07:21) | WARNING: No good candidate for cpu sensor found, using random from all found sensors.
+
+2023/07/10 (20:14:12) | ===> btop++ v.1.2.13
+2023/07/10 (20:14:12) | ERROR: Stall in Runner thread, restarting!
+2023/07/10 (20:47:56) | WARNING: Failed to join _runner thread on exit!
