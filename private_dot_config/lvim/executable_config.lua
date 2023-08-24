@@ -85,6 +85,10 @@ lvim.builtin.treesitter.ensure_installed = {
 
   "yaml",
   "json",
+  "markdown_inline",
+
+  "make",
+  "dockerfile",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
