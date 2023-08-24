@@ -71,17 +71,20 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
+
   "c",
-  "javascript",
-  "json",
+  "cpp",
+
   "lua",
   "python",
+
   "typescript",
+  "javascript",
   "tsx",
   "css",
-  "rust",
-  "java",
+
   "yaml",
+  "json",
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -164,13 +167,27 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- Additional Plugins
 lvim.plugins = {
-    { 'catppuccin/nvim' },
-    {
-        'windwp/nvim-ts-autotag',
-        config = function ()
-            require("nvim-ts-autotag").setup()
-        end,
-    },
+  { 'catppuccin/nvim' },
+
+  -- automatically close html/jsx tags
+  {
+    'windwp/nvim-ts-autotag',
+    config = function ()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+
+  -- autodetect indentation
+  {
+    'Darazaki/indent-o-matic',
+    config = function ()
+      require('indent-o-matic').setup({
+        max_lines = 1024,
+        standard_widths = { 2, 4, 8 },
+        skip_multiline = true,
+      })
+    end
+  },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -186,37 +203,3 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
-
--- Debugger configuration (https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation)
-local dap = require('dap')
-local mason_bin_path = '/home/tom/.local/share/nvim/mason/bin'
--- C/CPP
-dap.adapters.cppdbg = {
-  id = 'cppdbg',
-  type = 'executable',
-  command = mason_bin_path .. '/OpenDebugAD7',
-}
-dap.configurations.cpp = {
-  {
-    name = "Launch file",
-    type = "cppdbg",
-    request = "launch",
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopAtEntry = true,
-  },
-  {
-    name = 'Attach to gdbserver :1234',
-    type = 'cppdbg',
-    request = 'launch',
-    MIMode = 'gdb',
-    miDebuggerServerAddress = 'localhost:1234',
-    miDebuggerPath = '/usr/bin/gdb',
-    cwd = '${workspaceFolder}',
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-  },
-}
