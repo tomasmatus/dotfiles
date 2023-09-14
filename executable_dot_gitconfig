@@ -1,0 +1,14 @@
+[user]
+	name = tomasmatus
+	email = tomatus777@gmail.com
+[core]
+	editor = lvim
+[merge]
+	tool = meld
+[diff]
+	tool = meld
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
