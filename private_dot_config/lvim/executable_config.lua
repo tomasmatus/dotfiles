@@ -91,7 +91,7 @@ lvim.builtin.treesitter.ensure_installed = {
   "dockerfile",
 }
 
-lvim.builtin.treesitter.ignore_install = { "haskell" }
+lvim.builtin.treesitter.ignore_install = { }
 lvim.builtin.treesitter.highlight.enable = true
 
 -- generic LSP settings
