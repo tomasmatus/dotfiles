@@ -2,6 +2,6 @@ EDITOR="lvim"
 export VISUAL=${EDITOR}
 export EDITOR=${EDITOR}
 
-export NNN_TMPFILE ${HOME}/.config/nnn/.lastd
+export NNN_TMPFILE=${HOME}/.config/nnn/.lastd
 
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.ghcup/bin"
