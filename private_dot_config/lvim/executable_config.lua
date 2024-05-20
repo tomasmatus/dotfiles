@@ -70,28 +70,28 @@ lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
-  "bash",
+	"bash",
 
-  "c",
-  "cpp",
+	"c",
+	"cpp",
 
-  "lua",
-  "python",
+	"lua",
+	"python",
 
-  "typescript",
-  "javascript",
-  "tsx",
-  "css",
+	"typescript",
+	"javascript",
+	"tsx",
+	"css",
 
-  "yaml",
-  "json",
-  "markdown_inline",
+	"yaml",
+	"json",
+	"markdown_inline",
 
-  "make",
-  "dockerfile",
+	"make",
+	"dockerfile",
 }
 
-lvim.builtin.treesitter.ignore_install = { }
+lvim.builtin.treesitter.ignore_install = {}
 lvim.builtin.treesitter.highlight.enable = true
 
 -- generic LSP settings
@@ -171,27 +171,40 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- Additional Plugins
 lvim.plugins = {
-  { 'catppuccin/nvim' },
+	{ "catppuccin/nvim" },
 
-  -- automatically close html/jsx tags
-  {
-    'windwp/nvim-ts-autotag',
-    config = function ()
-      require("nvim-ts-autotag").setup()
-    end,
-  },
+	-- automatically close html/jsx tags
+	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	},
 
-  -- autodetect indentation
-  {
-    'Darazaki/indent-o-matic',
-    config = function ()
-      require('indent-o-matic').setup({
-        max_lines = 1024,
-        standard_widths = { 2, 4, 8 },
-        skip_multiline = true,
-      })
-    end
-  },
+	-- autodetect indentation
+	{
+		"Darazaki/indent-o-matic",
+		config = function()
+			require("indent-o-matic").setup({
+				max_lines = 1024,
+				standard_widths = { 2, 4, 8 },
+				skip_multiline = true,
+			})
+		end,
+	},
+
+	-- Copilot
+	{
+		"zbirenbaum/copilot-cmp",
+		event = "InsertEnter",
+		dependencies = { "zbirenbaum/copilot.lua" },
+		config = function()
+			vim.defer_fn(function()
+				require("copilot").setup() -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
+				require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
+			end, 100)
+		end,
+	},
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
