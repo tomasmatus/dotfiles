@@ -30,6 +30,7 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
+        foldcolumn = "0",
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -40,7 +41,7 @@ return {
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
-      -- first key is the mode
+      -- Normal mode
       n = {
         -- second key is the lefthand side of the map
 
@@ -68,6 +69,14 @@ return {
         -- quick save
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
       },
+
+      -- Visual mode
+      v = {
+        ["<"] = { "<gv", desc="Keep text selected when shifting left" },
+        [">"] = { ">gv", desc="Keep text selected when shifting right" },
+      },
+
+      -- Terminal
       t = {
         -- setting a mapping to false will disable it
         -- ["<esc>"] = false,
