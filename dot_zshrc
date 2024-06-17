@@ -122,6 +122,7 @@ alias weather="curl wttr.in/\?0\?F"
 alias ytdl="yt-dlp"
 alias curlip="curl ifconfig.co"
 alias te="toolbox enter"
+alias tec="toolbox enter cockpit"
 alias zshconf="${EDITOR} ~/.zshrc"
 
 # Recommended for vi mode
