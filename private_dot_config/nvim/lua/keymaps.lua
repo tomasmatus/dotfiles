@@ -52,6 +52,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Open new empty buffer in vsplit
 vim.keymap.set('n', '<C-w>n', '<cmd>vnew<CR>', { desc = 'Open empty buffer' })
+-- Close buffer
+vim.keymap.set('n', '<leader>x', '<cmd>bdelete<CR>', { desc = 'Close buffer' })
 
 -- ToggleTerm keybinds
 vim.keymap.set({ 'n', 'i', 't' }, '<A-1>', '<cmd>ToggleTerm direction=horizontal size=24<CR>', { desc = 'Open horizontal terminal' })
