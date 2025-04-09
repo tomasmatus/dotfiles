@@ -1,6 +1,19 @@
 -- lualine
 -- https://github.com/nvim-lualine/lualine.nvim
 
+local function get_active_copilot()
+  local buf_clients = vim.lsp.get_clients { bufnr = 0 }
+  local copilot_str = ''
+
+  for _, client in pairs(buf_clients) do
+    if client.name == 'copilot' then
+        copilot_str = ''
+    end
+  end
+
+  return copilot_str
+end
+
 return {
   {
     'nvim-lualine/lualine.nvim',
@@ -29,7 +42,7 @@ return {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = {},
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_x = { 'encoding', 'fileformat', 'filetype', get_active_copilot },
         lualine_y = { 'progress' },
         lualine_z = { 'location' },
       },
