@@ -1,12 +1,9 @@
 [user]
 	name = tomasmatus
-	email = tomatus777@gmail.com
+	email = tomatus777@tomatus.cz
+	signingkey = 3CC0D0FF063C587A
 [core]
-	editor = lvim
-[merge]
-	tool = meld
-[diff]
-	tool = meld
+	editor = nvim
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
