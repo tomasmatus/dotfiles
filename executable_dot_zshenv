@@ -1,5 +1,7 @@
-EDITOR="lvim"
+EDITOR="nvim"
 export VISUAL=${EDITOR}
 export EDITOR=${EDITOR}
 
 export PATH="${PATH}:${HOME}/.local/bin:${HOME}/.ghcup/bin"
+
+export DID_DIR="${HOME}/.config/did"
