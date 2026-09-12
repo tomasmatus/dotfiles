@@ -126,6 +126,17 @@ alias te="toolbox enter"
 alias tec="toolbox enter cockpit"
 alias zshconf="${EDITOR} ~/.zshrc"
 
+# Podman aliases
+alias pk="podman kube"
+alias pkp="podman kube play"
+alias pkd="podman kube down"
+
+# Kitty terminal helper for ssh
+if [[ "$TERM" == 'xterm-kitty' ]]; then
+    alias kssh="kitty +kitten ssh"
+    compdef kssh="ssh"
+fi
+
 # Recommended for vi mode
 export KEYTIMEOUT=1
 
