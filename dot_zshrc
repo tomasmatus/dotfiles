@@ -82,6 +82,7 @@ plugins=(
     zsh-autosuggestions
     colored-man-pages
     copypath
+    zoxide
 
     zsh-syntax-highlighting
 )
